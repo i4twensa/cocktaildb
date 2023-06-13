@@ -1,0 +1,22 @@
+.page-content {
+    position: absolute;
+    top: 20px;
+    bottom: 0;
+    left: 40px;
+    right: 40px;
+    min-height: 300px;
+    height:auto;
+    width: 200;
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    &>img{
+        position: absolute;
+        top:20px;
+    }
+
+}

@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row justify-content-center w-100">
+        <div class="col-md-7 text-center mt-2 w-100">
+            <div class="box mt-2"><img src="../../assets/logo.png" alt=""></div>
+            <div class="d-grid gap-2">
+                <button type="button" class="btn btn-primary" (click)="showFilter=!showFilter">
+                   {{ showFilter ? 'Ocultar filtros' :'Mostrar filtros'}}
+                </button>
+              </div>
+            <div class="box mt-2" *ngIf="showFilter">
+                <div class="row" [formGroup]="filterForm">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="selectField">Buscar por</label>
+                            <select class="form-select" id="selectField" formControlName="searchMode">
+                                <option *ngFor="let mode of searchModes" [value]="mode">{{mode}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="textField">{{filterForm.value.searchMode}}</label>
+                            <input type="text" formControlName="searchValue" class="form-control" id="textField">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" class="btn btn-primary btn-block" (click)="search()">Filtrar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="box mt-2" *ngIf="!filteredCocktailsList.length"><span>No se encontraron cocktails.</span></div>
+            <div class="container mt-4" *ngIf="filteredCocktailsList.length">
+                <div class="row">
+                    <div class="col-md-3 mr-2 row w-100">
+                        <div class="card" style="width: 18rem;" *ngFor="let drink of filteredCocktailsList">
+                            <img class="card-img-top" [src]="drink.strDrinkThumb" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">{{drink.strDrink}}</h5>
+                                <a class="btn btn-primary" (click)="goToCocktailDetails(drink.idDrink)">Ver detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

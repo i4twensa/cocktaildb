@@ -1,0 +1,33 @@
+<div class="container" *ngIf="drink">
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <div class="box mt-2"><img src="../../assets/logo.png" alt=""></div>
+            <div class="box mt-2">
+                <img [src]="drink.strDrinkThumb" alt="">
+            </div>
+            <div class="box mt-2">
+                <h1><strong>Instrucciones</strong></h1>
+                <p>{{drink.strInstructions}}</p>
+            </div>
+            <div class="row d-flex">
+                <div class="col">
+                    <h1><strong>Ingredientes</strong></h1>
+                    <p>{{drink.strIngredient1}}</p>
+                    <p>{{drink.strIngredient2}}</p>
+                    <p>{{drink.strIngredient3}}</p>
+                    <p>{{drink.strIngredient4}}</p>
+                </div>
+                <div class="col">
+                    <h1><strong>Measure</strong></h1>
+                    <p>{{drink.strMeasure1}}</p>
+                    <p>{{drink.strMeasure2}}</p>
+                    <p>{{drink.strMeasure3}}</p>
+                    <p>{{drink.strMeasure4}}</p>
+                </div>
+            </div>
+            <div class="box mt-2">
+                <button type="button" class="btn btn-primary" (click)="goToCocktailsList()">Volver</button>
+            </div>
+        </div>
+    </div>
+</div>
